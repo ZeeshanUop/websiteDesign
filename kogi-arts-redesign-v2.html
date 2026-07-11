@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KoGi Arts — Full Studio Redesign</title>
+<title>KoGi Arts — Mobile &amp; Console Game Studio</title>
+<meta name="description" content="KoGi Arts is an independent mobile and console game studio spanning gameplay engineering, 3D animation, VFX, voice direction, and original score.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23101C15'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23B8122F' transform='skewX(-12)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -11,27 +13,27 @@
     /* Premium light palette — default */
     --ink:#F7FBF8; --surface:#FFFFFF; --surface-2:#EAF4EC; --hairline:#D9EBDD;
     --text-hi:#101C15; --text-mid:#4C5F53; --text-low:#82948A;
-    --red:#B8122F; --amber:#A4690C; --teal:#0C8477; --violet:#6357C2;
-    /* Background-only green accents (mesh / orbs / particles) */
-    --bg-a:#0F8A4C; --bg-b:#22B573; --bg-c:#0C6B45; --bg-d:#7FD9A6;
+    --red:#B8122F; --amber:#96621A; --teal:#0C8477; --violet:#5B4FA0;
+    /* Background-only accents (mesh / orbs / particles) — deep teal, tied to the brand teal rather than an unrelated hue */
+    --bg-a:#0C4A44; --bg-b:#146B61; --bg-c:#082F2B; --bg-d:#3FA89A;
     --font-display:'Anton', sans-serif; --font-body:'Work Sans', sans-serif; --font-mono:'JetBrains Mono', monospace;
     --radius-card:14px; --radius-btn:4px;
     --shadow-sm:0 1px 2px rgba(16,28,21,.05), 0 1px 1px rgba(16,28,21,.04);
     --shadow-md:0 16px 36px -18px rgba(16,28,21,.14), 0 2px 8px rgba(16,28,21,.05);
     --shadow-lift:0 22px 44px -20px rgba(16,28,21,.18), 0 4px 12px rgba(16,28,21,.06);
-    --grid-opacity:.55; --orb-opacity:.14; --mesh-opacity:1; --grain-opacity:.03;
-    --particle-opacity:.36; --particle-alpha:.4; --link-alpha:.09; --particle-blend:multiply;
+    --grid-opacity:.4; --orb-opacity:.12; --mesh-opacity:1; --grain-opacity:.025;
+    --particle-opacity:.26; --particle-alpha:.35; --link-alpha:.07; --particle-blend:multiply;
   }
   html[data-theme="dark"]{
     --ink:#0B0C0F; --surface:#16171C; --surface-2:#1E2027; --hairline:#2A2C33;
     --text-hi:#F3F1EA; --text-mid:#B7B6B0; --text-low:#7C7B76;
     --red:#C81E3A; --amber:#E8A33D; --teal:#3FD6C4; --violet:#8B7FD8;
-    --bg-a:#1CA35E; --bg-b:#3FD6A0; --bg-c:#12723F; --bg-d:#67C99A;
+    --bg-a:#14766A; --bg-b:#22A895; --bg-c:#0C544A; --bg-d:#5FD9C4;
     --shadow-sm:0 1px 2px rgba(0,0,0,.35);
     --shadow-md:0 20px 40px -18px rgba(0,0,0,.55), 0 2px 10px rgba(0,0,0,.4);
     --shadow-lift:0 26px 50px -18px rgba(0,0,0,.6);
-    --grid-opacity:.22; --orb-opacity:.35; --mesh-opacity:0; --grain-opacity:0;
-    --particle-opacity:.55; --particle-alpha:.55; --link-alpha:.12; --particle-blend:screen;
+    --grid-opacity:.2; --orb-opacity:.28; --mesh-opacity:0; --grain-opacity:0;
+    --particle-opacity:.4; --particle-alpha:.45; --link-alpha:.09; --particle-blend:screen;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{background:var(--ink); color:var(--text-hi); font-family:var(--font-body); line-height:1.5; -webkit-font-smoothing:antialiased; transition:background .3s ease, color .3s ease; overflow-x:hidden; position:relative;}
@@ -198,13 +200,13 @@
   @media(min-width:960px){.profile-grid{grid-template-columns:repeat(4,1fr);}}
   .profile-card{background:var(--surface); border:1px solid var(--hairline); border-radius:var(--radius-card); padding:18px; text-align:center; transition:border-color .2s, transform .25s, box-shadow .25s; box-shadow:var(--shadow-sm);}
   .profile-card:hover{border-color:var(--text-low); transform:translateY(-3px); box-shadow:var(--shadow-md);}
-  .avatar{width:64px; height:64px; border-radius:50%; margin:0 auto 14px; overflow:hidden; display:block; border:2px solid var(--hairline); background:var(--surface-2); flex-shrink:0;}
-  .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
-  .avatar.a-teal{border-color:color-mix(in srgb, var(--teal) 55%, var(--hairline));}
-  .avatar.a-amber{border-color:color-mix(in srgb, var(--amber) 55%, var(--hairline));}
-  .avatar.a-red{border-color:color-mix(in srgb, var(--red) 55%, var(--hairline));}
-  .avatar.a-violet{border-color:color-mix(in srgb, var(--violet) 55%, var(--hairline));}
-  .avatar.a-gray{border-color:var(--hairline);}
+  .avatar{width:64px; height:64px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center; border:2px solid var(--hairline); background:var(--surface-2); flex-shrink:0; font-family:var(--font-display); font-size:18px; letter-spacing:.02em; color:var(--text-mid); position:relative; overflow:hidden;}
+  .avatar-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:50%;}
+  .avatar.a-teal{border-color:color-mix(in srgb, var(--teal) 55%, var(--hairline)); color:var(--teal); background:color-mix(in srgb, var(--teal) 12%, var(--surface-2));}
+  .avatar.a-amber{border-color:color-mix(in srgb, var(--amber) 55%, var(--hairline)); color:var(--amber); background:color-mix(in srgb, var(--amber) 12%, var(--surface-2));}
+  .avatar.a-red{border-color:color-mix(in srgb, var(--red) 55%, var(--hairline)); color:var(--red); background:color-mix(in srgb, var(--red) 12%, var(--surface-2));}
+  .avatar.a-violet{border-color:color-mix(in srgb, var(--violet) 55%, var(--hairline)); color:var(--violet); background:color-mix(in srgb, var(--violet) 12%, var(--surface-2));}
+  .avatar.a-gray{border-color:var(--hairline); color:var(--text-mid);}
   .profile-name{font-size:14px; font-weight:600; margin-bottom:4px; display:flex; align-items:center; justify-content:center; gap:5px;}
   .profile-name .star{color:var(--amber); font-size:11px;}
   .profile-role{font-size:12px; color:var(--text-mid); line-height:1.4;}
@@ -212,7 +214,7 @@
 
   .founder{display:grid; grid-template-columns:1fr; gap:32px; align-items:center;}
   @media(min-width:800px){.founder{grid-template-columns:auto 1fr;}}
-  .founder .avatar{width:110px; height:110px; font-size:34px; margin:0;}
+  .founder .avatar{width:110px; height:110px; font-size:32px; margin:0;}
   .founder-roles{list-style:none; margin-top:10px;}
   .founder-roles li{font-size:14px; color:var(--text-mid); padding:3px 0;}
   .founder-roles li b{color:var(--text-hi); font-weight:600;}
@@ -367,7 +369,7 @@
       <h2>Led from the front</h2>
     </div>
     <div class="founder reveal">
-      <div class="avatar a-red" style="border-radius:50%;"><img src="https://i.pravatar.cc/220?u=gideon-jack-montemoino" alt="J. A. Montemoiño headshot (placeholder)" loading="lazy"></div>
+      <div class="avatar a-red" aria-hidden="true">JM<img class="avatar-photo" src="http://www.kogiarts.com/wp-content/uploads/2026/01/My-Profile-Pic-Steamed.png" alt="" loading="lazy" onerror="this.remove()"></div>
       <div>
         <div class="profile-name" style="justify-content:flex-start; font-size:20px;">J. A. Montemoiño <span style="font-style:italic; color:var(--text-mid); font-weight:400;">"Gideon-Jack"</span></div>
         <ul class="founder-roles">
@@ -414,7 +416,7 @@
 
 <footer>
   <div class="wrap foot-row">
-    <span>© 2026 KoGi Arts. All rights reserved.</span>
+    <span>© 2026 KoGi Arts and Software. All rights reserved.</span>
     <span><a href="#studio">Studio</a> &nbsp;·&nbsp; <a href="#work">Games</a> &nbsp;·&nbsp; <a href="#videos">Videos</a> &nbsp;·&nbsp; <a href="#knights">Knights</a> &nbsp;·&nbsp; <a href="#contact">Contact</a></span>
   </div>
 </footer>
@@ -488,8 +490,8 @@
     const ctx = canvas.getContext('2d');
     let w, h, particles, running = true;
     const palettes = {
-      light: ['15,138,76', '34,181,115', '12,107,69'],
-      dark: ['28,163,94', '63,214,160', '18,114,63'],
+      light: ['12,74,68', '20,107,97', '8,47,43'],
+      dark: ['20,118,106', '34,168,149', '12,84,74'],
     };
 
     function sizeCanvas(){
@@ -588,46 +590,46 @@
 
   const teamData = [
     { section:'Mobile Div. Artists', accent:'teal', members:[
-      {name:'Yoga Réformanto', role:'2D Animations'},
-      {name:'Carlos Landrove', role:'2D Animation', star:true},
-      {name:'Meshac "Rexx" Pimentel', role:'Producer / Audio Engineer', star:true},
-      {name:'Scott Fuller', role:'3D Modeling / Rigging'},
-      {name:'Elodie Renault', role:'Lead 3D Modeling / Rigging'},
+      {name:'Yoga Réformanto', role:'2D Animations', photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Yoga.png'},
+      {name:'Carlos Landrove', role:'2D Animation', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2021/09/242086850_1843530542495203_6332806094380014724_n.png'},
+      {name:'Meshac "Rexx" Pimentel', role:'Producer / Audio Engineer', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2021/08/196859931_4005846436117665_4717038437102198840_n.jpg'},
+      {name:'Scott Fuller', role:'3D Modeling / Rigging', photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Scott-1.png'},
+      {name:'Elodie Renault', role:'Lead 3D Modeling / Rigging', photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Elodie-1.png'},
     ]},
     { section:'Mobile Div. Code Masters', accent:'amber', members:[
-      {name:'Ahmed Raza Rana', role:'Unity Mobile Developer', star:true},
-      {name:'M. Shazeem', role:'Flutter Dev'},
-      {name:'Umair Ahmad', role:'Unity Mobile Developer', tag:'Mangia!'},
-      {name:'Malindu Praboda', role:'Unity Mobile Developer', tag:'Mangia!'},
-      {name:'Samroz Waseem', role:'Flutter Dev Affiliate / Consultant', tag:'Inching'},
-      {name:'Hua Cai', role:'Flutter Software Support Dev', tag:'Inching Mobile'},
+      {name:'Ahmed Raza Rana', role:'Unity Mobile Developer', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Ahmed.png'},
+      {name:'M. Shazeem', role:'Flutter Dev', photo:'http://www.kogiarts.com/wp-content/uploads/2026/07/Shazeen-Pic.png'},
+      {name:'Umair Ahmad', role:'Unity Mobile Developer', tag:'Mangia!', photo:'http://www.kogiarts.com/wp-content/uploads/2026/01/Umair-Ahmad.png'},
+      {name:'Malindu Praboda', role:'Unity Mobile Developer', tag:'Mangia!', photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Malindu.png'},
+      {name:'Samroz Waseem', role:'Flutter Dev Affiliate / Consultant', tag:'Inching', photo:'http://www.kogiarts.com/wp-content/uploads/2026/01/Samroz-Waseem.png'},
+      {name:'Hua Cai', role:'Flutter Software Support Dev', tag:'Inching Mobile', photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Hana.png'},
     ]},
     { section:'The Voices', accent:'red', members:[
-      {name:'Ella McNish', role:'Voice Actress', tag:'Syra', star:true},
-      {name:'Gabriel Zoromski', role:'Voice Actor', tag:'Jaden Ayr Meninjer'},
-      {name:'John Paul Goss', role:'Voice Actor', tag:'Sturm Viquen'},
-      {name:'Simon Jackson', role:'Voice Actor', tag:'Morn'},
-      {name:'Josh Portillo', role:'Voice Actor', tag:'Adlibs'},
+      {name:'Ella McNish', role:'Voice Actress', tag:'Syra', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Ella.png'},
+      {name:'Gabriel Zoromski', role:'Voice Actor', tag:'Jaden Ayr Meninjer', photo:'http://www.kogiarts.com/wp-content/uploads/2026/01/Gabriel-Zoromski-large.png'},
+      {name:'John Paul Goss', role:'Voice Actor', tag:'Sturm Viquen', photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/John-Paul.png'},
+      {name:'Simon Jackson', role:'Voice Actor', tag:'Morn', photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Simon.png'},
+      {name:'Josh Portillo', role:'Voice Actor', tag:'Adlibs', photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Josh.png'},
     ]},
     { section:'Console Div. Associates', accent:'violet', members:[
-      {name:'Ahmed Abdul Salam', role:'3D Modelling / Rigging / Animation', tag:'Bubble World', star:true},
-      {name:'Ouassim Berkani', role:'Principal Game & Exploration Development', tag:'Meninjer: NSD', star:true},
-      {name:'Saad Ali', role:'End-to-End Game Flow, Repository Mgmt', tag:'Meninjer: NSD', star:true},
-      {name:'Fernando "Redrum" Sierra', role:'The Irate Composer', tag:'Mobile & Console', star:true},
-      {name:'Manga/Anime', role:'Game Artist', tag:'Pix'},
-      {name:'Jaden (Jay) Bryant', role:'Unreal Game UI/UX Developer', tag:'Console Porting Support', star:true},
+      {name:'Ahmed Abdul Salam', role:'3D Modelling / Rigging / Animation', tag:'Bubble World', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2026/06/Ahmed-Abdul-Salam-150.png'},
+      {name:'Ouassim Berkani', role:'Principal Game & Exploration Development', tag:'Meninjer: NSD', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2026/02/Ouassim-Berkani-Square.png'},
+      {name:'Saad Ali', role:'End-to-End Game Flow, Repository Mgmt', tag:'Meninjer: NSD', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2026/01/Saad-Ali.jpg'},
+      {name:'Fernando "Redrum" Sierra', role:'The Irate Composer', tag:'Mobile & Console', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2026/01/Nando-Irate.jpg'},
+      {name:'Manga/Anime', role:'Game Artist', tag:'Pix', photo:'http://www.kogiarts.com/wp-content/uploads/2025/09/zHEKA-resized.png'},
+      {name:'Jaden (Jay) Bryant', role:'Unreal Game UI/UX Developer', tag:'Console Porting Support', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Jaden.png'},
       {name:'Bee Mann', role:'3D Generalist / Modeler, 2D Animator'},
-      {name:'Pak Ji Su', role:'VFX Artist', tag:'Visual Effects'},
-      {name:'Talha Gul', role:'3D Modelling / Rigging', star:true},
-      {name:'Jamie Mallender', role:'Special Music Contribution'},
-      {name:'Sajid Ali', role:'3D Modelling / 3D Animation'},
-      {name:'Paul Uchenna', role:'3D Modeler / Rigger'},
+      {name:'Pak Ji Su', role:'VFX Artist', tag:'Visual Effects', photo:'http://www.kogiarts.com/wp-content/uploads/2026/01/Pak.png'},
+      {name:'Talha Gul', role:'3D Modelling / Rigging', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Talha.png'},
+      {name:'Jamie Mallender', role:'Special Music Contribution', photo:'http://www.kogiarts.com/wp-content/uploads/2025/03/54800134_10156716820994821_5697719055281029120_n.jpg'},
+      {name:'Sajid Ali', role:'3D Modelling / 3D Animation', photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Sajid.png'},
+      {name:'Paul Uchenna', role:'3D Modeler / Rigger', photo:'http://www.kogiarts.com/wp-content/uploads/2026/01/Paul-Uchena.png'},
     ]},
     { section:'Think Tank', accent:'gray', members:[
-      {name:'Adrienne Allende', role:'Business Advisor', star:true},
-      {name:'Allan Davis', role:'Shadow Media, QA Affiliate / Consultant', star:true},
-      {name:'Ouassim Berkani', role:'Germany Console Division Partner', star:true},
-      {name:'Alia R. Tyner, Ph.D', role:'Education / Software Design', star:true},
+      {name:'Adrienne Allende', role:'Business Advisor', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2021/09/AA.png'},
+      {name:'Allan Davis', role:'Shadow Media, QA Affiliate / Consultant', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2021/09/Allan-Davis-150.png'},
+      {name:'Ouassim Berkani', role:'Germany Console Division Partner', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2026/02/Ouassim-Berkani-Square.png'},
+      {name:'Alia R. Tyner, Ph.D', role:'Education / Software Design', star:true, photo:'http://www.kogiarts.com/wp-content/uploads/2024/12/Alia.png'},
     ]},
   ];
 
@@ -641,7 +643,7 @@
       <div class="profile-grid reveal-stagger reveal">
         ${sec.members.map(m => `
           <div class="profile-card" data-search="${(m.name + ' ' + m.role + ' ' + (m.tag || '')).toLowerCase()}">
-            <div class="avatar a-${sec.accent}"><img src="https://i.pravatar.cc/160?u=${encodeURIComponent(m.name)}" alt="${m.name} headshot (placeholder)" loading="lazy"></div>
+            <div class="avatar a-${sec.accent}" aria-hidden="true">${initials(m.name)}${m.photo ? `<img class="avatar-photo" src="${m.photo}" alt="" loading="lazy" onerror="this.remove()">` : ''}</div>
             <div class="profile-name">${m.name}${m.star ? ' <span class=\"star\">★</span>' : ''}</div>
             <div class="profile-role">${m.role}</div>
             ${m.tag ? `<div class="profile-tag">${m.tag}</div>` : ''}
